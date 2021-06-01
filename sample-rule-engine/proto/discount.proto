@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option go_package = "github.com/herbert/sample-rule-engine/proto/discount";
+option java_multiple_files = true;
+option java_package = "io.grpc.examples.discount";
+option java_outer_classname = "DiscountRuleEngineProto";
+
+package discount;
+
+service DiscountRuleEngine {
+    rpc CalculateDiscount (DiscountRequest) returns (DiscountReply) {}
+}
+
+message DiscountRequest {
+    string product_id = 1;
+    string user_id = 2;
+}
+
+message DiscountReply {
+    float percentage = 1;
+}

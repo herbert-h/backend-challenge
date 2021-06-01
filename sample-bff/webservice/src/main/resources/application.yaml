@@ -1,0 +1,62 @@
+info:
+  project:
+    name: sample-bff
+
+server:
+  port: 8080
+
+management:
+  server.port: 8081
+  info.git.mode: full
+  endpoint:
+    health:
+      show-details: ALWAYS
+  endpoints:
+    enabled-by-default: true
+    web:
+      exposure:
+        include: '*'
+
+spring:
+  application:
+    name: sample-bff
+
+  jackson:
+    default-property-inclusion: non_null
+    deserialization:
+      fail_on_unknown_properties: false
+    serialization:
+      fail_on_empty_beans: false
+      write_dates_as_timestamps: false
+    property-naming-strategy: SNAKE_CASE
+
+  jpa:
+    open-in-view: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL95Dialect
+        jdbc.lob.non_contextual_creation: 1
+
+  r2dbc:
+    url: r2dbc:pool:postgresql://${DB_HOST}:5432/hashlab-challenge
+    username: postgres
+    password: ${DB_PASS}
+
+  flyway:
+    enabled: false
+
+springdoc:
+  swagger-ui:
+    path: /swagger
+
+hello-world:
+  grpc:
+    host: ${GRPC_HOST}
+    port: 50051
+    deadlineInMilliseconds: 10000
+
+discount:
+  grpc:
+    host: ${GRPC_HOST}
+    port: 50051
+    deadlineInMilliseconds: 10000

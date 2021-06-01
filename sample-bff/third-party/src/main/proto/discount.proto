@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.herbert.samplebff.thirdparty.discount";
+option java_outer_classname = "DiscountRuleEngineProto";
+
+package discount;
+
+service DiscountRuleEngine {
+    rpc CalculateDiscount (DiscountRequest) returns (DiscountReply) {}
+}
+
+message DiscountRequest {
+    string product_id = 1;
+    string user_id = 2;
+}
+
+message DiscountReply {
+    float percentage = 1;
+}

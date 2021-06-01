@@ -1,0 +1,17 @@
+application:
+  http:
+    port: :8082
+    name: sample-rule-engine
+  grpc:
+    port: :50051
+
+env:
+  name: local
+
+database:
+  port: 5432
+  database: hashlab-challenge
+  username: postgres
+  # max-idle-conns: 10
+  # max-open-conns: 30
+  conn-max-lifetime: 600000

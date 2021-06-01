@@ -1,0 +1,38 @@
+version: "3.9"
+
+services:
+    postgres-db:
+        image: "postgres:12.7-alpine"
+        container_name: "postgres-container"
+        restart: "always"
+        ports: 
+            - "5432:5432"
+        environment:
+            POSTGRES_DB: "hashlab-challenge"
+            POSTGRES_PASSWORD: "backend-challenge"
+    rule-engine:
+        build: "./sample-rule-engine"
+        container_name: "sample-rule-engine-container"
+        restart: "always"
+        environment:
+            DB_PASS: "backend-challenge"
+            DB_HOST: "postgres-db"
+        ports:
+            - "8082:8082"
+            - "50051:50051"
+        depends_on:
+            - "postgres-db"
+    bff:
+        build: "./sample-bff"
+        container_name: "sample-bff-container"
+        restart: "always"
+        environment:
+            DB_PASS: "backend-challenge"
+            DB_HOST: "postgres-db"
+            GRPC_HOST: "rule-engine"
+        ports:
+            - "8080:8080"
+            - "8081:8081"
+        depends_on:
+            - "postgres-db"
+            - "rule-engine"
