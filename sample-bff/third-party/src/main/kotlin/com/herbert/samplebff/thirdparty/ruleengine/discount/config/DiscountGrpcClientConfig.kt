@@ -1,6 +1,6 @@
-package com.herbert.samplebff.thirdparty.discount.config
+package com.herbert.samplebff.thirdparty.ruleengine.discount.config
 
-import com.herbert.samplebff.thirdparty.discount.DiscountRuleEngineGrpcKt
+import com.herbert.samplebff.thirdparty.ruleengine.discount.DiscountRuleEngineGrpcKt
 import io.grpc.ManagedChannelBuilder
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration

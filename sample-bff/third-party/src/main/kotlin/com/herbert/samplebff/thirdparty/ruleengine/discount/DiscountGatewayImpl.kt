@@ -1,7 +1,7 @@
-package com.herbert.samplebff.thirdparty.discount
+package com.herbert.samplebff.thirdparty.ruleengine.discount
 
 import com.herbert.samplebff.business.product.DiscountGateway
-import com.herbert.samplebff.thirdparty.discount.config.DiscountGrpcClient
+import com.herbert.samplebff.thirdparty.ruleengine.discount.config.DiscountGrpcClient
 import java.util.concurrent.TimeUnit
 import org.springframework.stereotype.Component
 

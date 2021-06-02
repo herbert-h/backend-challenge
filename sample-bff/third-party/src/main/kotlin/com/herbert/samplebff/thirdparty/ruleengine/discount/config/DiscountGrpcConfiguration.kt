@@ -1,4 +1,4 @@
-package com.herbert.samplebff.thirdparty.discount.config
+package com.herbert.samplebff.thirdparty.ruleengine.discount.config
 
 import org.springframework.boot.context.properties.ConfigurationProperties
 import org.springframework.boot.context.properties.ConstructorBinding
