@@ -21,7 +21,7 @@ import org.springframework.web.reactive.function.server.coRouter
 class ProductRouter {
 
     companion object {
-        const val PATH = "/api/product"
+        const val PATH = "/api/products"
         const val TAG = "Product"
     }
 
