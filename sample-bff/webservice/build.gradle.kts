@@ -14,6 +14,9 @@ dependencies {
 
     implementation("org.springdoc:springdoc-openapi-kotlin")
     implementation("org.springdoc:springdoc-openapi-webflux-ui")
+
+    testImplementation("org.testcontainers:postgresql")
+    testImplementation("org.testcontainers:testcontainers")
 }
 
 springBoot {

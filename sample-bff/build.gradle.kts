@@ -13,8 +13,11 @@ val embeddedDatabaseSpringTestVersion: String by ext
 val embeddedPostgresVersion: String by ext
 val postgresqlVersion: String by ext
 val flywayVersion: String by ext
+val flywayTestVersion: String by ext
 val grpcKotlinStub: String by ext
 val grpcSpringBootStarter: String by ext
+val testContainerPostgres: String by ext
+val testContainer: String by ext
 
 plugins {
     id("org.springframework.boot") version "2.4.6" apply false
@@ -84,7 +87,10 @@ subprojects {
             dependency("io.zonky.test:embedded-database-spring-test:$embeddedDatabaseSpringTestVersion")
             dependency("io.zonky.test:embedded-postgres:$embeddedPostgresVersion")
             dependency("org.postgresql:postgresql:$postgresqlVersion")
+            dependency("org.testcontainers:postgresql:$testContainerPostgres")
+            dependency("org.testcontainers:testcontainers:$testContainer")
             dependency("org.flywaydb:flyway-core:$flywayVersion")
+            dependency("org.flywaydb.flyway-test-extensions:flyway-spring-test:$flywayTestVersion")
             dependency("io.grpc:grpc-kotlin-stub:$grpcKotlinStub")
             dependency("io.github.lognet:grpc-spring-boot-starter:$grpcSpringBootStarter")
         }
@@ -103,7 +109,6 @@ subprojects {
         implementation("org.springframework.boot:spring-boot-starter-aop")
         implementation("org.springframework.boot:spring-boot-starter-log4j2")
 
-
         // Jackson
         implementation("com.fasterxml.jackson.core:jackson-core")
         implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
@@ -116,6 +121,7 @@ subprojects {
         testImplementation("io.kotlintest:kotlintest-extensions-spring")
         testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-debug")
         testImplementation("io.mockk:mockk")
+        testImplementation("org.flywaydb.flyway-test-extensions:flyway-spring-test")
         testImplementation("org.springframework.boot:spring-boot-starter-test") {
             exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
         }

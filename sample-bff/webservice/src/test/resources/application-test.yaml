@@ -18,6 +18,9 @@ management:
         include: '*'
 
 spring:
+  main:
+    banner-mode: off
+
   application:
     name: sample-bff
 
@@ -38,12 +41,24 @@ spring:
         jdbc.lob.non_contextual_creation: 1
 
   r2dbc:
-    url: r2dbc:pool:postgresql://${DB_HOST}:5432/hashlab-challenge
-    username: postgres
-    password: ${DB_PASS}
+    name: sample-bff-test
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    pool:
+      initial-size: 10
+      max-size: 20
+      max-idle-time: 30m
+      validation-query: SELECT 1
 
   flyway:
-    enabled: false
+    schemas: public
+    locations: classpath:db/migration, classpath:db/data
+    enabled: true
+    url: ${FLYWAY_URL}
+    user: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    validate-on-migrate: true
 
 springdoc:
   swagger-ui:
@@ -51,6 +66,6 @@ springdoc:
 
 discount:
   grpc:
-    host: ${GRPC_HOST}
+    host: localhost
     port: 50051
     deadlineInMilliseconds: 10000
