@@ -2,10 +2,10 @@ package discount
 
 import (
 	"context"
-	"log"
 
 	pb "github.com/herbert/sample-rule-engine/proto"
 	"github.com/jmoiron/sqlx"
+	log "github.com/sirupsen/logrus"
 	"google.golang.org/grpc"
 )
 
@@ -33,7 +33,7 @@ type DiscountRuleEngineGrpcServer struct {
 func (gs *DiscountRuleEngineGrpcServer) CalculateDiscount(ctx context.Context, in *pb.DiscountRequest) (*pb.DiscountReply, error) {
 	productId := in.GetProductId()
 	userId := in.GetUserId()
-	log.Printf("Received: product=%v & user=%v", productId, userId)
+	log.Infof("Received: product=%v & user=%v", productId, userId)
 	p, err := gs.s.svc.Apply(productId, userId)
 	if err != nil {
 		return nil, err

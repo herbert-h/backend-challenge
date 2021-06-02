@@ -13,10 +13,12 @@ type Birthday struct {
 }
 
 func (b *Birthday) Execute(u *user.User, p *product.Product, d *model.Discount) {
-	bday, _ := time.Parse(time.RFC3339, u.DateOfBirth)
-	today := time.Now()
-	if bday.Day() == today.Day() && bday.Month() == today.Month() {
-		d.Percentage += 5.0
+	if u != nil {
+		bday, _ := time.Parse(time.RFC3339, u.DateOfBirth)
+		today := time.Now()
+		if bday.Day() == today.Day() && bday.Month() == today.Month() {
+			d.Percentage += 5.0
+		}
 	}
 	b.Next.Execute(u, p, d)
 }
