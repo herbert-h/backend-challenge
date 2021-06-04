@@ -1,11 +1,7 @@
 package com.herbert.samplebff.webservice.resources.user.extension
 
-import com.herbert.samplebff.api.product.ProductRequest
-import com.herbert.samplebff.api.product.ProductResponse
 import com.herbert.samplebff.api.user.UserRequest
 import com.herbert.samplebff.api.user.UserResponse
-import com.herbert.samplebff.business.product.model.Product
-import com.herbert.samplebff.business.product.model.ProductDiscount
 import com.herbert.samplebff.business.user.model.User
 
 fun UserRequest.toEntity() = User(

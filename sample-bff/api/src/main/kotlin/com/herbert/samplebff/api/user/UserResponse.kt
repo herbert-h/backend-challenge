@@ -1,12 +1,10 @@
 package com.herbert.samplebff.api.user
 
-import com.herbert.samplebff.api.product.ProductResponse
-import java.util.Date
+import java.time.LocalDate
 
 data class UserResponse(
     val id: String,
     val firstName: String,
     val lastName: String,
-    val dateOfBirth: Date,
+    val dateOfBirth: LocalDate
 )
-
