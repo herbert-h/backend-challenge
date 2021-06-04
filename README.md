@@ -9,12 +9,12 @@ Implementation of the test described [here](https://github.com/hashlab/hiring/bl
 - [x] Services can use a shared database
 
 ## Implementation
-- [x] [Rule Engine](sample-rule-engine/README.md)
-- [x] [BFF (Backend For Frontend)](sample-bff/README.md)
+- [x] [Rule Engine](sample-rule-engine)
+- [x] [BFF (Backend For Frontend)](sample-bff)
 
 ## Docs
-- [x] [Postman](docs/HASHBackEndChallenge.postman_collection.json)
-- [x] [Swagger](http://localhost:8080/swagger)
+- [x] [Postman](docs)
+- [x] [Swagger](http://localhost:8080/swagger) *\*Only when BFF is running*
 
 ## Run
 ```
