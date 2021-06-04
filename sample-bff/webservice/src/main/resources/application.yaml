@@ -43,7 +43,13 @@ spring:
     password: ${DB_PASS}
 
   flyway:
-    enabled: false
+    schemas: public
+    locations: classpath:db/migration, classpath:db/data
+    enabled: true
+    url: jdbc:postgresql://${DB_HOST}:5432/hashlab-challenge
+    user: postgres
+    password: ${DB_PASS}
+    validate-on-migrate: true
 
 springdoc:
   swagger-ui:
