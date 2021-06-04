@@ -11,8 +11,7 @@ env:
 database:
   port: 5432
   database: hashlab-challenge
-  username: postgres
-  password: backend-challenge
+  username: postgress
   # max-idle-conns: 10
   # max-open-conns: 30
   conn-max-lifetime: 600000
