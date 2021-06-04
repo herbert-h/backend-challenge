@@ -32,7 +32,7 @@ class ProductServiceTest {
 
         coVerify(exactly = 1) { productRepository.findById(eq(product.id!!)) }
 
-        assert(product == respProduct.copy(id = null))
+        assert(product == respProduct) // import and use better assert
     }
 
     @Test

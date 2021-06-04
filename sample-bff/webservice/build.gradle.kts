@@ -15,6 +15,10 @@ dependencies {
     implementation("org.springdoc:springdoc-openapi-kotlin")
     implementation("org.springdoc:springdoc-openapi-webflux-ui")
 
+    implementation("org.flywaydb:flyway-core")
+    runtimeOnly("org.springframework.boot:spring-boot-starter-jdbc")
+    runtimeOnly("org.postgresql:postgresql")
+
     testImplementation("org.testcontainers:postgresql")
     testImplementation("org.testcontainers:testcontainers")
 }
