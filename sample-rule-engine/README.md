@@ -16,6 +16,7 @@
 # Improvements
 - [ ] Project architeture
 - [ ] Organize application yaml
+- [ ] Add more logs
 - [ ] Improve Rule Chain of Responsability
 
 ## Observations
