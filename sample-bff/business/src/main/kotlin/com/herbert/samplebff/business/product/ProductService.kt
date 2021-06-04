@@ -1,5 +1,6 @@
 package com.herbert.samplebff.business.product
 
+import com.herbert.samplebff.business.exception.NotFoundException
 import com.herbert.samplebff.business.product.model.Product
 import com.herbert.samplebff.business.product.model.ProductDiscount
 import java.util.UUID
@@ -15,7 +16,7 @@ class ProductService(
     private val discountGateway: DiscountGateway
 ) {
     companion object {
-        val logger: Logger = LoggerFactory.getLogger(this::class.java)
+        val logger: Logger = LoggerFactory.getLogger(ProductService::class.java)
     }
 
     suspend fun create(product: Product): Product {
@@ -26,7 +27,7 @@ class ProductService(
     suspend fun findById(id: UUID): Product {
         logger.debug("Recover product by id [productId=$id]")
         return productRepository.findById(id) ?:
-            throw Exception() // TODO - Exception NotFound
+            throw NotFoundException("Product not found with id=$id")
     }
 
     suspend fun listWithDiscount(userId: String?): List<Product> {
