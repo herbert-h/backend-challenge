@@ -17,6 +17,12 @@ Implementation of the test described [here](https://github.com/hashlab/hiring/bl
 - [x] [Swagger](http://localhost:8080/swagger) *\*Only when BFF is running*
 
 ## Run
+- Build BFF with embedded gradle
+```
+cd sample-bff
+./gradlew clean build
+```
+- Then just start docker compose
 ```
 docker compose up -d
 ```

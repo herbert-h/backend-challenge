@@ -3,7 +3,7 @@ module github.com/herbert/sample-rule-engine
 go 1.16
 
 require (
-	github.com/google/uuid v1.1.2 // indirect
+	github.com/google/uuid v1.1.2
 	github.com/jmoiron/sqlx v1.3.4
 	github.com/labstack/echo v3.3.10+incompatible
 	github.com/labstack/gommon v0.3.0 // indirect

@@ -18,7 +18,7 @@ class PostgresContainer {
         private const val EXPOSED_PORT = 5432
 
         private val log: Logger = LoggerFactory.getLogger(PostgresContainer::class.java)
-        private val postgresContainer: PostgreSQLContainer<*> = PostgreSQLContainer<Nothing>()
+        private val postgresContainer: PostgreSQLContainer<*> = PostgreSQLContainer<Nothing>("postgres:12.7-alpine")
 
         fun start(
             dataBaseName: String,

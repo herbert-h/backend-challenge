@@ -19,7 +19,6 @@
 - [x] Route for get users `GET /users`
 - [x] Unit tests
 - [x] Integration tests
-- [ ] Add gradle build in Dockerfile
 
 # Improvements
 - [ ] Organize application yaml
@@ -43,4 +42,5 @@
 ## Run
 - Setup/run postgres database
 - Setup application.yaml with database configs
-- Build and run using Dockerfile
+- Build application with embedded gradle `./gradlew clean build`
+- Build/run using Dockerfile
