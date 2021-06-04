@@ -3,9 +3,9 @@ package rule
 import (
 	"time"
 
-	"github.com/herbert/sample-rule-engine/internal/business/discount/model"
-	"github.com/herbert/sample-rule-engine/internal/business/product"
-	"github.com/herbert/sample-rule-engine/internal/business/user"
+	disc "github.com/herbert/sample-rule-engine/internal/business/discount/model"
+	prod "github.com/herbert/sample-rule-engine/internal/business/product/model"
+	user "github.com/herbert/sample-rule-engine/internal/business/user/model"
 )
 
 type BlackFriday struct {
@@ -17,7 +17,7 @@ const (
 	bfMonth = 11
 )
 
-func (b *BlackFriday) Execute(u *user.User, p *product.Product, d *model.Discount) {
+func (b *BlackFriday) Execute(u *user.User, p *prod.Product, d *disc.Discount) {
 	today := time.Now()
 	if today.Day() == bfDay && today.Month() == bfMonth {
 		d.Percentage += 10.0

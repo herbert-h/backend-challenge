@@ -1,16 +1,16 @@
 package rule
 
 import (
-	"github.com/herbert/sample-rule-engine/internal/business/discount/model"
-	"github.com/herbert/sample-rule-engine/internal/business/product"
-	"github.com/herbert/sample-rule-engine/internal/business/user"
+	disc "github.com/herbert/sample-rule-engine/internal/business/discount/model"
+	prod "github.com/herbert/sample-rule-engine/internal/business/product/model"
+	user "github.com/herbert/sample-rule-engine/internal/business/user/model"
 )
 
 type Max struct {
 	Next Rule
 }
 
-func (m *Max) Execute(u *user.User, p *product.Product, d *model.Discount) {
+func (m *Max) Execute(u *user.User, p *prod.Product, d *disc.Discount) {
 	if d.Percentage > 10.0 {
 		d.Percentage = 10.0
 	}
